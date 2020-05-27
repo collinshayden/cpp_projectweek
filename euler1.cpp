@@ -17,3 +17,6 @@ int main()
   }
   cout <<sum<<endl;
 }
+
+//output is 233168
+//bit of a trivial PE, but an easy place to start
