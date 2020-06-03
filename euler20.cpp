@@ -8,13 +8,14 @@ using namespace std;
 
 int factorialsum(int n)
 {
+  //to use ttmath::Int<n>, n calculated by the forumula 2^(32*n). n in this case is 20, meaning the class will support up to 2^(32*20)digits
   ttmath::Int<20> digit, sum = 0; 
   ttmath::Int<20> f = 1;
   for (int i = n; i > 0; i--){
     f *= i;
   }
   while (f>0){
-    digit = f % 10;
+    digit = f % 10;//remainder of modulo division is the last digit of f
     sum += digit;
     f /= 10;
   } cout<<sum<<endl;
@@ -24,3 +25,4 @@ int main()
 {
   factorialsum(100);
 }
+//output is 648
