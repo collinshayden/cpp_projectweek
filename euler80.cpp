@@ -6,11 +6,10 @@
 #include <iostream>
 #include "ttmath/ttmath.h"
 using namespace std;
-ttmath::Big<1,10> sum = 0; //global
 
-int sqrtdigitsum(ttmath::Big<1,10> n)
+ttmath::Big<1,2> sqrtdigitsum(ttmath::Big<1,10> n)//function return defined as a ttmath::big
 {
-  ttmath::Big<1,10> digit, temp, originalnum, count = 0, tenmultiple = 10;
+  ttmath::Big<1,10> digit, temp, originalnum, count = 0, tenmultiple = 10, sum = 0;
   
   temp = n; temp.Sqrt(); temp = Floor(temp); temp = temp*temp;//if the square is rational, like sqrt(4) = 2, then flooring will not have an effect. 
 
@@ -28,14 +27,16 @@ int sqrtdigitsum(ttmath::Big<1,10> n)
       sum += n; count++; tenmultiple *= 10; 
       // cout<<count;cout<<" ";cout<<n<<endl;
     } 
-  }  
+  } return sum;
 }
 
 int main()
 {
+  ttmath::Big<1,10> sum, total = 0; 
   for (ttmath::Big<1,2> i = 1; i < 100; i++){
-  sqrtdigitsum(i); 
-  cout<<"num: ";cout<<i;cout<<" sum: ";cout<<sum<<endl;
+  sum = sqrtdigitsum(i); 
+  total += sum;
+  cout<<"num: ";cout<<i;cout<<" sum: ";cout<<total<<endl;
   } 
 }
 
