@@ -5,18 +5,22 @@
 
 using namespace std;
 
-int main()
+ttmath::Int<3> digitsum(int base, int power)
 {
   ttmath::Int<40> n, digit, sum = 0;
-  n=2;
-  n.Pow(1000);
-  cout<<n<<endl;
+  n=base;
+  n.Pow(power);
   while (n>0){  
     digit = n % 10;
     n = n/10;
     sum += digit;
   }
-  cout <<sum<<endl;
+  return sum;
+}
+
+int main()
+{
+  cout<<"digitsum: ";cout<<digitsum(2,1000)<<endl;
 }
 
 //output is 1366
